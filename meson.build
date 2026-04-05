@@ -117,8 +117,8 @@ xml2_dep = dependency(
 xmlxx_pc_requires = []
 libxml2_lib_pkgconfig = []
 
-# Put libxml-2.0 in the 'Requires:' section in the generated pkg-config file if
-# we found it by pkg-config
+# Put libxml-2.0 in the 'Requires.private:' section in the generated pkg-config
+# file, if we found it by pkg-config, else in the 'Libs.private:' section.
 if xml2_dep.type_name() == 'pkgconfig' or xml2_dep.type_name() == 'internal'
   xmlxx_pc_requires += ['libxml-2.0' + xml2_req]
 else
